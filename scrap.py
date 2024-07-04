@@ -2,6 +2,9 @@ import undetected_chromedriver as uc
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver import Keys
+from time import sleep
 
 
 class Bot_chrome:
@@ -15,7 +18,11 @@ class Bot_chrome:
 
     
     def acessar(self):
-        self.driver.get("https://www.mercadolivre.com/jms/mlb/lgz/msl/login/H4sIAAAAAAAEAzWNSw6DMAxE7-I1gn2WvUhkgoGoDkGOIVQVd69TieV83swXOC9x8_rZCRzQtXMMUaGDnVHnLMnHyYLEZpWo9MixVVAwkZIUcN82tND0IoPa1IxcyEp46OpnztW8_5d5sXi6jNuQfaXxjNTSh1iyiVV1L24Yaq19Igk4ZY6nUB9y6kcZ4O4MKOpVMLzBqRx0_wBJfknyzgAAAA/user")
-        self.driver.save_screenshot("teste.png")
+        self.driver.get("https://nowsecure.nl")
         print(self.driver.title)
+        # email = self.driver.find_element(By.XPATH, '//input[@name="user_id"]')
+        # email.send_keys('igormarinhosilva@gmail.com', Keys.ENTER)
+        sleep(3)
+        self.driver.save_screenshot("teste.png")
+
         self.driver.close()
