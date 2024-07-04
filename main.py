@@ -8,7 +8,7 @@ def job():
     print(time.strftime("%H:%M:%S"))
     bot.acessar()
 
-schedule.every(60).seconds.do(job)
+schedule.every(10).minutes.do(job)
 
     
 while True:
