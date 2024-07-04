@@ -8,7 +8,9 @@ class Bot_chrome:
 
     def __init__(self) -> None:
         self.options = uc.ChromeOptions()
-        self.options.add_argument('--headless=True')
+        self.options.add_argument('--headless')
+        self.options.add_argument('--no-sandbox')
+        self.options.add_argument('--disable-dev-shm-usage')
         self.driver = uc.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
 
     
@@ -17,5 +19,3 @@ class Bot_chrome:
         self.driver.save_screenshot("teste.png")
         print(self.driver.title)
         self.driver.close()
-
-
