@@ -1,5 +1,5 @@
 # Use uma imagem base oficial do Python
-FROM python:3.11-slim
+FROM python:3.11
 
 # Instale o Selenium
 RUN pip install selenium
