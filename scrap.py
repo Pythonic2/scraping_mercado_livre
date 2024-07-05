@@ -26,3 +26,4 @@ class Bot_chrome:
         self.driver.save_screenshot("teste.png")
 
         self.driver.close()
+        

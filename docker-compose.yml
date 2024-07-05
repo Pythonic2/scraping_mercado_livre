@@ -1,9 +1,13 @@
-version: '3.11'
+version: '3'
+
 services:
-  bot:
-    container_name: av-container
-    restart: always
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    pull_policy: build
+  selenium-chrome:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+
+  my-django-project:
+    build: .
+    depends_on:
+      - selenium-chrome
+    network_mode: "host"

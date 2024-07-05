@@ -1,15 +1,11 @@
-import schedule
-import time
-import pytz
-from scrap import Bot_chrome
-def job():
-    bot = Bot_chrome()
-    print("I'm working...")
-    print(time.strftime("%H:%M:%S"))
-    bot.acessar()
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium import webdriver
 
-schedule.every(1).minutes.do(job)
-
-    
-while True:
-    schedule.run_pending()
+options = ChromeOptions()
+options.set_capability('se:recordVideo', True)
+options.set_capability('se:screenResolution', '1920x1080')
+options.set_capability('se:name', 'test_visit_basic_auth_secured_page (ChromeTests)')
+driver = webdriver.Remote(options=options, command_executor="http://172.17.0.3:4444")
+driver.get("https://selenium.dev")
+print(driver.title)
+driver.quit()

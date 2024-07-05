@@ -1,17 +1,17 @@
-# Use Python 3.11 base image
-FROM python:3.11
+# Use a imagem base do Python 3.11
+FROM python:3.11-slim
 
-# Set working directory in the container
+# Defina o diretório de trabalho
 WORKDIR /app
 
-ENV DISPLAY=:99
+# Copie os requisitos para o contêiner
+COPY requirements.txt requirements.txt
 
-COPY . /app
-WORKDIR /app
-
-RUN pip install --upgrade pip
-
+# Instale os pacotes necessários
 RUN pip install -r requirements.txt
 
-# Set the default command to run your application
-CMD [ "python", "main.py" ]
+# Copie o restante do código do aplicativo
+COPY . .
+
+# Comando para executar os testes
+CMD ["python","main.py"]
