@@ -1,7 +1,9 @@
-version: '3.11'
 services:
-  bot:
+  selenium-hub:
+    image: selenium/standalone-chrome:126.0
     container_name: av-container
+    ports:
+      - "4444:4444"
     restart: always
     build: 
       context: .
