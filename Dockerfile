@@ -1,16 +1,14 @@
-# Use a imagem base do Python 3.11
-FROM python:3.11
+# Use uma imagem base oficial do Python
+FROM python:3.11-slim
+
+# Instale o Selenium
+RUN pip install selenium
+
+# Copie o código da aplicação para o contêiner
+COPY . /app
+
 # Defina o diretório de trabalho
 WORKDIR /app
 
-# Copie os requisitos para o contêiner
-COPY requirements.txt requirements.txt
-
-# Instale os pacotes necessários
-RUN pip install -r requirements.txt
-
-# Copie o restante do código do aplicativo
-COPY . .
-
-# Comando para executar os testes
-CMD ["python","main.py"]
+# Comando para executar a aplicação
+CMD ["python", "your_script.py"]

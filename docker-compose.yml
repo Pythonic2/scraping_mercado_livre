@@ -1,11 +1,16 @@
+version: '3'
 services:
-  selenium-hub:
-    image: selenium/standalone-chrome:126.0
-    container_name: av-container
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: selenium-chrome
     ports:
       - "4444:4444"
-    restart: always
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    pull_policy: build
+
+  app:
+    build: .
+    depends_on:
+      - selenium
+    environment:
+      - SELENIUM_HOST=selenium-chrome
+    links:
+      - selenium
