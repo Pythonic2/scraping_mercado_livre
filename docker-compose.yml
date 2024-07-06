@@ -1,6 +1,6 @@
 version: '3.11'
 services:
-  imagem: robcherry/docker-chromedriver:latest
+  imagem: drupalci/webdriver-chromedriver
   bot:
     container_name: av-container
     restart: always
