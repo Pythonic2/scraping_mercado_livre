@@ -1,16 +1,7 @@
 version: '3'
 services:
   selenium:
-    image: selenium/standalone-chrome:112.0
+    image: selenium/standalone-chrome
     container_name: selenium-chrome
     ports:
       - "4444:4444"
-
-  app:
-    build: .
-    depends_on:
-      - selenium
-    environment:
-      - SELENIUM_HOST=selenium
-    links:
-      - selenium
