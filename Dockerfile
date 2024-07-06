@@ -1,6 +1,7 @@
 # Usar uma imagem base oficial do Python
 FROM python:3.11
 EXPOSE 4444
+EXPOSE 4445
 # Instalar dependências Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt

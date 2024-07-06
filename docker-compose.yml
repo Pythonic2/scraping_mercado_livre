@@ -4,7 +4,7 @@ services:
     image: selenium/standalone-chrome:112.0
     container_name: selenium-chrome
     ports:
-      - "4444:4444"
+      - "4445:4444"  # Mapeando o serviço Selenium para a porta 4445 do host
 
   app:
     build: .
