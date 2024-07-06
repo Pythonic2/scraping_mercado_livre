@@ -1,16 +1,26 @@
+# version: '3'
+# services:
+#   selenium:
+#     image: selenium/standalone-chrome
+#     container_name: selenium-chrome
+#     ports:
+#       - "4444:4444"
+
+#   app:
+#     build: .
+#     depends_on:
+#       - selenium
+#     environment:
+#       - SELENIUM_HOST=selenium
+#     links:
+#       - selenium
+
 version: '3'
 services:
-  selenium:
-    image: selenium/standalone-chrome
-    container_name: selenium-chrome
-    ports:
-      - "4444:4444"
-
-  app:
-    build: .
-    depends_on:
-      - selenium
-    environment:
-      - SELENIUM_HOST=selenium
-    links:
-      - selenium
+  bot:
+    container_name: av-container
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build

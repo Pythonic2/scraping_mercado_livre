@@ -24,8 +24,9 @@ class BotChrome:
 
     def __init__(self):
         self.chrome_options = Options()
-        # self.chrome_options.add_argument('--headless')
-       
+        self.chrome_options.add_argument('--headless')
+        self.chrome_options.add_argument('--no-sandbox')
+
         self.chrome_options.add_argument(r'--user-data-dir=\DadosNavegador')
         #drive
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.chrome_options)
