@@ -8,7 +8,7 @@ options.set_capability('se:name', 'test_visit_basic_auth_secured_page (ChromeTes
 driver = webdriver.Remote(options=options, command_executor="http://172.17.0.2:4444")
 driver.get("https://selenium.dev")
 print(driver.title)
-driver.quit()4
+driver.quit()
 
 # from selenium.webdriver import Keys
 # from selenium import webdriver
