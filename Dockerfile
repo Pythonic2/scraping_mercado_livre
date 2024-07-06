@@ -17,7 +17,7 @@ RUN pip install playwright
 
 # Configuração do Playwright para uso com Python
 RUN playwright install
-RUN  playwright install-deps
+RUN playwright install-deps
 RUN apt-get install libgbm1
 
 # Diretório de trabalho para a aplicação
@@ -26,5 +26,4 @@ WORKDIR /app
 # Copie os arquivos de aplicação para o contêiner
 COPY . .
 
-# Comando para rodar a aplicação
 CMD ["python", "main.py"]
