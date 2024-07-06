@@ -1,9 +1,19 @@
 version: '3'
 services:
-  bot:
-    container_name: av-container
-    restart: always
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    pull_policy: build
+  playwright:
+    build: .
+    depends_on:
+      - chromium
+    environment:
+      - PLAYWRIGHT_BROWSERS_PATH=/usr/bin
+    volumes:
+      - /usr/bin:/usr/bin
+      - /dev/shm:/dev/shm
+      - /tmp:/tmp
+
+  chromium:
+    image: mcr.microsoft.com/playwright:bionic-armv7
+    volumes:
+      - /usr/bin:/usr/bin
+      - /dev/shm:/dev/shm
+      - /tmp:/tmp

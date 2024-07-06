@@ -1,6 +1,5 @@
 # Use a imagem oficial do Python
-FROM python:3.11
-
+FROM balenalib/raspberry-pi-python
 # Instale o Playwright e dependências do navegador (Chromium, Firefox, WebKit)
 RUN apt-get update && apt-get install -y \
     wget \
