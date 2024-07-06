@@ -1,7 +1,9 @@
-version: '3'
+version: '3.11'
 services:
-  selenium:
-    image: selenium/standalone-chrome
-    container_name: selenium-chrome
-    ports:
-      - "4444:4444"
+  bot:
+    container_name: av-container
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build
