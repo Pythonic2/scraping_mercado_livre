@@ -10,4 +10,4 @@ COPY . /app
 WORKDIR /app
 
 # Comando para rodar a aplicação
-CMD ["python", "main.py"]
+CMD ["playwright", "install","python", "main.py"]
