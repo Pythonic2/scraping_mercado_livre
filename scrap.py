@@ -20,8 +20,7 @@ class Bot_chrome:
     def acessar(self):
         self.driver.get("https://nowsecure.nl")
         print(self.driver.title)
-        # email = self.driver.find_element(By.XPATH, '//input[@name="user_id"]')
-        # email.send_keys('igormarinhosilva@gmail.com', Keys.ENTER)
+       
         sleep(3)
         self.driver.save_screenshot("teste.png")
 
