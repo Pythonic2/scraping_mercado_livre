@@ -1,13 +1,30 @@
-# Usar uma imagem base oficial do Python
+# Use a imagem oficial do Python
 FROM python:3.11
 
-# Instalar dependências Python
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Instale o Playwright e dependências do navegador (Chromium, Firefox, WebKit)
+RUN apt-get update && apt-get install -y \
+    wget \
+    xvfb \
+    libnss3 \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libgtk-3-0 \
+    libx11-xcb1 \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copiar código da aplicação para o diretório /app no contêiner
-COPY . /app
+# Instale o Playwright via pip
+RUN pip install playwright
+
+# Configuração do Playwright para uso com Python
+RUN playwright install
+RUN  playwright install-deps
+RUN apt-get install libgbm1
+
+# Diretório de trabalho para a aplicação
 WORKDIR /app
 
+# Copie os arquivos de aplicação para o contêiner
+COPY . .
+
 # Comando para rodar a aplicação
-CMD ["playwright", "install","python", "main.py"]
+CMD ["python", "main.py"]
