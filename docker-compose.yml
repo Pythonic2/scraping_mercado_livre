@@ -1,11 +1,20 @@
-version: '3'
-
+version: '3.8'
 
 services:
-  bot:
-    container_name: av-container
-    restart: always
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    pull_policy: build
+  selenium-chrome-1:
+    image: selenium/standalone-chrome:112.0
+    ports:
+      - "4444:4444"
+    networks:
+      - selenium_network
+
+  selenium-chrome-2:
+    image: selenium/standalone-chrome:112.0
+    ports:
+      - "4445:4444"
+    networks:
+      - selenium_network
+
+networks:
+  selenium_network:
+    driver: bridge
