@@ -3,7 +3,7 @@ version: '3'
 
 services:
   bot:
-    container_name: bot-selenium
+    container_name: av-container
     restart: always
     build: 
       context: .
