@@ -1,11 +1,17 @@
-version: '3'
-
+version: '3.8'
 
 services:
   bot:
-    container_name: bot-selenium
-    restart: always
-    build: 
+    image: ultrafunk/undetected-chromedriver
+    build:
       context: .
       dockerfile: Dockerfile
-    pull_policy: build
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python", "main.py"]
+    restart: always
+
+  undetected-chromedriver:
+    image: ultrafunk/undetected-chromedriver
+    restart: always

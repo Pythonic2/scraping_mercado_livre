@@ -1,17 +1,13 @@
-# Use a imagem oficial do Python
-FROM python:3.11
+FROM ultrafunk/undetected-chromedriver
 
-# Diretório de trabalho para a aplicação
+# Instale o Chrome
+RUN apt-get update && apt-get install -y \
+    google-chrome-stable \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copie seu código para o contêiner
+COPY . /app
+
 WORKDIR /app
 
-# Copie o arquivo de requisitos para o diretório de trabalho
-COPY requirements.txt .
-
-# Instale os pacotes necessários
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copie os arquivos de aplicação para o contêiner
-COPY . .
-
-# Comando para iniciar a aplicação
-CMD ["python", "main.py"]
+CMD ["python","main.py"]
