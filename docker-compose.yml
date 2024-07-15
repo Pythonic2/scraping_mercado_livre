@@ -1,17 +1,13 @@
 version: '3.8'
 
 services:
-  bot:
-    image: ultrafunk/undetected-chromedriver
-    build:
-      context: .
-      dockerfile: Dockerfile
+  playwright:
+    restart: always
+    image: mcr.microsoft.com/playwright/python:v1.40.0-jammy
+    container_name: playwright_container
     volumes:
       - .:/app
     working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
     command: ["python", "main.py"]
-    restart: always
-
-  undetected-chromedriver:
-    image: ultrafunk/undetected-chromedriver
-    restart: always

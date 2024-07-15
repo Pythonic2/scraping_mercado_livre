@@ -1,13 +1,18 @@
-FROM ultrafunk/undetected-chromedriver
+# Use a imagem oficial do Python
+FROM python:3.10
 
-# Instale o Chrome
-RUN apt-get update && apt-get install -y \
-    google-chrome-stable \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copie seu código para o contêiner
-COPY . /app
-
+# Configura o diretório de trabalho
 WORKDIR /app
 
-CMD ["python","main.py"]
+# Copia o arquivo de requisitos para o contêiner
+COPY requirements.txt .
+
+# Instala as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+RUN playwright install
+RUN playwright install-deps 
+# Copia o restante da aplicação para o contêiner
+COPY . .
+
+# Executa a aplicação
+CMD ["python", "main.py"]

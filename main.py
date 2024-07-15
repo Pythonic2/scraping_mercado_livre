@@ -1,7 +1,8 @@
-import undetected_chromedriver as uc
-uc.TARGET_VERSION = 126.0
-options = uc.ChromeOptions()
-options.arguments.extend(["--no-sandbox", "--disable-setuid-sandbox","--headless"]) 
-driver = uc.Chrome(options)
-driver.get("https://google.com.br")
-print(driver.title)
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto("http://google.com.br")
+    print(page.title())
+    browser.close()
