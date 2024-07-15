@@ -5,7 +5,6 @@ services:
     restart: always
     image: mcr.microsoft.com/playwright/python:v1.40.0-jammy
     container_name: playwright_container
-    working_dir: /app
     environment:
       - PYTHONUNBUFFERED=1
     command: ["python", "main.py"]
