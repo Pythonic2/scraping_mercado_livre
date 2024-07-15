@@ -5,6 +5,9 @@ services:
     restart: always
     image: mcr.microsoft.com/playwright/python:v1.40.0-jammy
     container_name: playwright_container
+    volumes:
+      - .:/app  # Monta o diretório atual no contêiner
+    working_dir: /app  # Define o diretório de trabalho
     environment:
       - PYTHONUNBUFFERED=1
     command: ["python", "main.py"]
