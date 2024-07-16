@@ -1,5 +1,8 @@
-version: '3.8'
 services:
-  meubot:
-    image: bot-google-app:latest
+  app:
     restart: always
+    image: playwright-image:latest
+    build:
+      context: .
+    command: ["python","main.py"]
+
