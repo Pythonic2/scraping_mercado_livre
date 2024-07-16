@@ -1,7 +1,10 @@
 version: '3.8'
+
 services:
-  appx:
-    image: foda2:latest
+  app:
+    restart: always
     build:
+      context: .
       dockerfile: Dockerfile
-    command: ["python", "main.py"]
+    environment:
+      - PYTHONUNBUFFERED=1
