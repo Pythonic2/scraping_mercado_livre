@@ -1,10 +1,5 @@
 version: '3.8'
-
 services:
-  app:
+  meubot:
+    image: bot-google-app:latest
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - PYTHONUNBUFFERED=1
