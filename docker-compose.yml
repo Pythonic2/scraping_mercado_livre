@@ -3,6 +3,7 @@ services:
     image: mcr.microsoft.com/playwright/python:v1.45.0-jammy
     restart: always
     build:
-      context: .
-    command: ["python","main.py"]
-
+      context: .  # Assuming docker-compose.yml and main.py are in the same directory
+      # If main.py is elsewhere, adjust the COPY instruction below
+      COPY main.py .  # Copies main.py from current context to container's working directory
+    command: ["python", "main.py"]  # Assuming main.py is copied or in the working directory
