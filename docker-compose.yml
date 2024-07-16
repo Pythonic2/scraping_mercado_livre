@@ -1,4 +1,6 @@
 services:
-  imagem-bot:
+  appx:
+    image: foda2:latest
     build:
       dockerfile: Dockerfile
+    command: ["python", "main.py"]
