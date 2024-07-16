@@ -1,8 +1,8 @@
 services:
   app:
+    image: mcr.microsoft.com/playwright/python:v1.45.0-jammy
     restart: always
     build:
       context: .
-      dockerfile: Dockerfile
     command: ["python","main.py"]
 
