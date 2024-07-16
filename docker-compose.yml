@@ -1,11 +1,4 @@
-version: '3.8'
-
 services:
-  app:
-    restart: always
+  imagem-bot:
     build:
-      context: .
       dockerfile: Dockerfile
-    environment:
-      - PYTHONUNBUFFERED=1
-    command: ["python", "main.py"]
