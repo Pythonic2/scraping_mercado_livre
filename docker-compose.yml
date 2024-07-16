@@ -2,7 +2,5 @@ services:
   app:
     restart: always
     image: mcr.microsoft.com/playwright/python:v1.45.0-jammy
-    build:
-      context: .
     command: ["python","main.py"]
 
