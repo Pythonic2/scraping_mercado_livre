@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   appx:
     image: foda2:latest
