@@ -1,7 +1,7 @@
 services:
   app:
     restart: always
-    image: playwright-image:latest
+    image: mcr.microsoft.com/playwright/python:v1.45.0-jammy
     build:
       context: .
     command: ["python","main.py"]
