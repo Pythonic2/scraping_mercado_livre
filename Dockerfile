@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM playw-bot-app:latest
 
 WORKDIR /app
 

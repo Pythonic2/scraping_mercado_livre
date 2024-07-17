@@ -1,5 +1,6 @@
 services:
   app:
+    image: playw-bot-app:latest
     restart: always
     build:
       context: . 
